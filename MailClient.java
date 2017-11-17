@@ -11,7 +11,7 @@ public class MailClient
     private MailServer server;
     // The user running this client.
     private String user;
-
+  
     /**
      * Create a mail client run by user and attached to the given server.
      */
@@ -54,5 +54,14 @@ public class MailClient
     {
         MailItem item = new MailItem(user, to, subject, message);
         server.post(item);
+    }
+    
+    /**
+     * Contador de correos. 
+     * Muestra por pantalla los correos que tenemos en el servidor.
+     */
+    public void totalCorreos()
+    {
+        System.out.println("Cantidad correos en el servidor son " + server.howManyMailItems(user));
     }
 }
